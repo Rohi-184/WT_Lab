@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Selectors - 8 Types</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #f8fafc;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.box {
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.box1 {
+  background: #f3e8ff;
+  border: 2px solid #a855f7;
+  color: #6b21a8;
+}
+.box1 h2 { color: #581c87; }
+
+.box2 {
+  background: #dcfce7;
+  border: 2px solid #22c55e;
+}
+.box2 h2 { color: #14532d; }
+p.element-styled {
+  color: #15803d;
+  font-weight: bold;
+}
+
+.box3 {
+  background: #e0f2fe;
+  border: 2px solid #38bdf8;
+}
+.box3 h2 { color: #0369a1; }
+#unique {
+  color: #0c4a6e;
+  background: #bae6fd;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.box4 {
+  background: #ffedd5;
+  border: 2px solid #fb923c;
+}
+.box4 h2 { color: #c2410c; }
+.classdemo {
+  color: #9a3412;
+  background: #fed7aa;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.box5 {
+  background: #ffe4e6;
+  border: 2px solid #fb7185;
+}
+.box5 h2 { color: #be123c; }
+h3 { color: #e11d48; margin-bottom: 4px; }
+h4 { color: #9f1239; }
+
+.box6 {
+  background: #ccfbf1;
+  border: 2px solid #2dd4bf;
+}
+.box6 h2 { color: #0f766e; }
+div p {
+  color: #115e59;
+  font-weight: bold;
+}
+
+.box7 {
+  background: #fef3c7;
+  border: 2px solid #facc15;
+}
+.box7 h2 { color: #a16207; }
+.parent > span {
+  color: #854d0e;
+  font-weight: bold;
+}
+
+.box8 {
+  background: #fce7f3;
+  border: 2px solid #f472b6;
+}
+.box8 h2 { color: #be185d; }
+button {
+  background: #db2777;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #9d174d;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>CSS SELECTORS - 8 TYPES</h1>
+
+<div class="grid">
+
+  <div class="box box1">
+    <h2>1. Universal Selector (*)</h2>
+    <p>Applies font and sizing to all elements on the page.</p>
+  </div>
+
+  <div class="box box2">
+    <h2>2. Element Selector (p)</h2>
+    <p class="element-styled">This paragraph is styled using the Element Selector.</p>
+  </div>
+
+  <div class="box box3">
+    <h2>3. ID Selector (#unique)</h2>
+    <p id="unique">This paragraph uses the ID Selector.</p>
+  </div>
+
+  <div class="box box4">
+    <h2>4. Class Selector (.classdemo)</h2>
+    <p class="classdemo">This paragraph uses the Class Selector.</p>
+  </div>
+
+  <div class="box box5">
+    <h2>5. Group Selector (h3, h4)</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+  </div>
+
+  <div class="box box6">
+    <h2>6. Descendant Selector (div p)</h2>
+    <div>
+      <p>This paragraph is inside a div element.</p>
+    </div>
+  </div>
+
+  <div class="box box7">
+    <h2>7. Child Selector (div > span)</h2>
+    <div class="parent">
+      <span>This is a direct child element.</span>
+    </div>
+  </div>
+
+  <div class="box box8">
+    <h2>8. Pseudo-class Selector (:hover)</h2>
+    <button>Hover Over Me</button>
+  </div>
+
+</div>
+
+</body>
+</html>
