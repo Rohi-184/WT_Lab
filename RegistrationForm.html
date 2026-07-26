@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 850px;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px 12px;
+            vertical-align: middle;
+            font-size: 15px;
+            color: #444;
+        }
+
+        td:first-child {
+            font-weight: 600;
+            width: 25%;
+        }
+
+        .name-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .name-group input {
+            flex: 1;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1.5px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 6px rgba(102, 126, 234, 0.4);
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .buttons input {
+            padding: 12px 35px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"] {
+            background: #667eea;
+            color: #ffffff;
+        }
+
+        input[type="submit"]:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        input[type="reset"] {
+            background: #e53e3e;
+            color: #ffffff;
+        }
+
+        input[type="reset"]:hover {
+            background: #c53030;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Student Registration Form</h2>
+
+        <form>
+            <table>
+                <tr>
+                    <td>Full Name</td>
+                    <td>
+                        <div class="name-group">
+                            <input type="text" placeholder="First Name" required>
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Email Address</td>
+                    <td><input type="email" placeholder="example@gmail.com" required></td>
+                </tr>
+
+                <tr>
+                    <td>Address</td>
+                    <td><textarea rows="3" placeholder="Enter full address"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input type="date"></td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td class="radio-group">
+                        <label><input type="radio" name="gender"> Male</label>
+                        <label><input type="radio" name="gender"> Female</label>
+                        <label><input type="radio" name="gender"> Other</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Marital Status</td>
+                    <td class="radio-group">
+                        <label><input type="radio" name="status"> Single</label>
+                        <label><input type="radio" name="status"> Married</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Mobile Number</td>
+                    <td><input type="tel" placeholder="10-digit mobile number"></td>
+                </tr>
+
+                <tr>
+                    <td>Branch</td>
+                    <td>
+                        <select required>
+                            <option value="">-- Select Branch --</option>
+                            <option value="CSE">Computer Science & Engineering (CSE)</option>
+                            <option value="IT">Information Technology (IT)</option>
+                            <option value="ECE">Electronics & Communication (ECE)</option>
+                            <option value="EEE">Electrical & Electronics (EEE)</option>
+                            <option value="MECH">Mechanical Engineering (MECH)</option>
+                            <option value="CIVIL">Civil Engineering (CIVIL)</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Year of Study</td>
+                    <td>
+                        <select>
+                            <option value="">-- Select Year --</option>
+                            <option value="1">I Year</option>
+                            <option value="2">II Year</option>
+                            <option value="3">III Year</option>
+                            <option value="4">IV Year</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Blood Group</td>
+                    <td>
+                        <select>
+                            <option value="">-- Select Blood Group --</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>State</td>
+                    <td><input type="text" placeholder="Enter state name"></td>
+                </tr>
+
+                <tr>
+                    <td>Languages Known</td>
+                    <td class="checkbox-group">
+                        <label><input type="checkbox"> English</label>
+                        <label><input type="checkbox"> Telugu</label>
+                        <label><input type="checkbox"> Hindi</label>
+                        <label><input type="checkbox"> Kannada</label>
+                        <label><input type="checkbox"> Tamil</label>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttons">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
