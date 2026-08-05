@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Food Order Form</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ff9966, #ff5e62);
+        padding: 30px;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+      }
+
+      .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .food-card {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        transition: 0.3s;
+      }
+
+      .food-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px #ccc;
+      }
+
+      .food-card h3 {
+        color: #ff5e62;
+        margin-bottom: 10px;
+      }
+
+      .price {
+        font-weight: bold;
+        margin: 10px;
+      }
+
+      .qty-control {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        justify-content: center;
+        margin: 30px auto 0;
+      }
+
+      .qty-btn {
+        margin: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: linear-gradient(180deg, #ff7a59, #ff4b4b);
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 6px 14px rgba(255,75,75,0.28);
+        display: inline-grid;
+        place-items: center;
+        transition: transform 0.12s ease, filter 0.12s ease;
+      }
+
+      .qty-btn:active {
+        transform: scale(0.95);
+      }
+
+      .qty-display {
+        min-width: 44px;
+        height: 40px;
+        padding: 0 12px;
+        border-radius: 10px;
+        background: #fff6f4;
+        color: #333;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 -2px 6px rgba(0,0,0,0.03);
+      }
+
+      input[type="number"] {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+      }
+
+      .customer {
+        margin-top: 30px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+
+      textarea {
+        resize: none;
+        height: 80px;
+      }
+
+      .total {
+        margin-top: 20px;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: right;
+      }
+
+      button {
+        width: 100%;
+        padding: 15px;
+        background: #ff5e62;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background: #e64549;
+      }
+
+      #message {
+        display: none;
+        text-align: center;
+        color: green;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>🍕 Food Menu Order</h1>
+
+      <form id="orderForm">
+        <div class="menu">
+          <div class="food-card" data-price="250">
+            <h3>Pizza</h3>
+            <p>Cheese Pizza</p>
+            <div class="price">₹250</div>
+            <div class="qty-control">
+              <button class="qty-btn minus" type="button">−</button>
+              <div class="qty-display" aria-live="polite">0</div>
+              <button class="qty-btn plus" type="button">+</button>
+              <input type="number" class="item" name="pizza_qty" value="0" min="0" />
+            </div>
+          </div>
+
+          <div class="food-card" data-price="150">
+            <h3>Burger</h3>
+            <p>Chicken Burger</p>
+            <div class="price">₹150</div>
+            <div class="qty-control">
+              <button class="qty-btn minus" type="button">−</button>
+              <div class="qty-display" aria-live="polite">0</div>
+              <button class="qty-btn plus" type="button">+</button>
+              <input type="number" class="item" name="burger_qty" value="0" min="0" />
+            </div>
+          </div>
+
+          <div class="food-card" data-price="200">
+            <h3>Pasta</h3>
+            <p>Italian Pasta</p>
+            <div class="price">₹200</div>
+            <div class="qty-control">
+              <button class="qty-btn minus" type="button">−</button>
+              <div class="qty-display" aria-live="polite">0</div>
+              <button class="qty-btn plus" type="button">+</button>
+              <input type="number" class="item" name="pasta_qty" value="0" min="0" />
+            </div>
+          </div>
+
+          <div class="food-card" data-price="50">
+            <h3>Cold Drink</h3>
+            <p>Soft Drink</p>
+            <div class="price">₹50</div>
+            <div class="qty-control">
+              <button class="qty-btn minus" type="button">−</button>
+              <div class="qty-display" aria-live="polite">0</div>
+              <button class="qty-btn plus" type="button">+</button>
+              <input type="number" class="item" name="drink_qty" value="0" min="0" />
+            </div>
+          </div>
+        </div>
+
+        <div class="customer">
+          <h2>Customer Details</h2>
+
+          <input type="text" placeholder="Your Name" required />
+
+          <input type="tel" placeholder="Phone Number" required />
+
+          <textarea placeholder="Delivery Address" required></textarea>
+        </div>
+
+        <div class="total">Total: ₹<span id="total">0</span></div>
+
+        <button type="submit">Place Order</button>
+      </form>
+
+      <div id="message">🎉 Order placed successfully!</div>
+    </div>
+            <script>
+            </script>
+  </body></html>
