@@ -242,5 +242,65 @@
       <div id="message">🎉 Order placed successfully!</div>
     </div>
             <script>
+              document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("orderForm");
+  const totalDisplay = document.getElementById("total");
+  const messageBox = document.getElementById("message");
+  const foodCards = document.querySelectorAll(".food-card");
+
+  // Function to calculate and update total price
+  function updateTotal() {
+    let total = 0;
+    foodCards.forEach((card) => {
+      const price = parseFloat(card.getAttribute("data-price"));
+      const qtyInput = card.querySelector("input.item");
+      const qty = parseInt(qtyInput.value) || 0;
+      total += price * qty;
+    });
+    totalDisplay.textContent = total;
+  }
+
+  // Add event listeners to each food card's buttons
+  foodCards.forEach((card) => {
+    const plusBtn = card.querySelector(".plus");
+    const minusBtn = card.querySelector(".minus");
+    const qtyDisplay = card.querySelector(".qty-display");
+    const qtyInput = card.querySelector("input.item");
+
+    plusBtn.addEventListener("click", () => {
+      let currentQty = parseInt(qtyInput.value) || 0;
+      currentQty++;
+      qtyInput.value = currentQty;
+      qtyDisplay.textContent = currentQty;
+      updateTotal();
+    });
+
+    minusBtn.addEventListener("click", () => {
+      let currentQty = parseInt(qtyInput.value) || 0;
+      if (currentQty > 0) {
+        currentQty--;
+        qtyInput.value = currentQty;
+        qtyDisplay.textContent = currentQty;
+        updateTotal();
+      }
+    });
+  });
+
+  // Handle Form Submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent page reload
+
+    // Check if at least one item is selected
+    const currentTotal = parseFloat(totalDisplay.textContent);
+    if (currentTotal === 0) {
+      alert("Please select at least one item before placing your order.");
+      return;
+    }
+
+    // Display success message and hide form
+    form.style.display = "none";
+    messageBox.style.display = "block";
+  });
+});
             </script>
   </body></html>
