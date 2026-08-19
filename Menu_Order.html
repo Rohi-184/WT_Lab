@@ -82,10 +82,12 @@
         color: white;
         font-weight: 700;
         cursor: pointer;
-        box-shadow: 0 6px 14px rgba(255,75,75,0.28);
+        box-shadow: 0 6px 14px rgba(255, 75, 75, 0.28);
         display: inline-grid;
         place-items: center;
-        transition: transform 0.12s ease, filter 0.12s ease;
+        transition:
+          transform 0.12s ease,
+          filter 0.12s ease;
       }
 
       .qty-btn:active {
@@ -103,7 +105,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: inset 0 -2px 6px rgba(0,0,0,0.03);
+        box-shadow: inset 0 -2px 6px rgba(0, 0, 0, 0.03);
       }
 
       input[type="number"] {
@@ -162,7 +164,7 @@
         font-size: 20px;
         margin-top: 20px;
       }
-      
+
       .btn-label {
         margin-top: -3px;
       }
@@ -180,10 +182,20 @@
             <p>Cheese Pizza</p>
             <div class="price">₹250</div>
             <div class="qty-control">
-              <button class="qty-btn minus" type="button"><label class="btn-label">−</label></button>
+              <button class="qty-btn minus" type="button">
+                <label class="btn-label">−</label>
+              </button>
               <div class="qty-display" aria-live="polite">0</div>
-              <button class="qty-btn plus" type="button"><label class="btn-label">+</label></button>
-              <input type="number" class="item" name="pizza_qty" value="0" min="0" />
+              <button class="qty-btn plus" type="button">
+                <label class="btn-label">+</label>
+              </button>
+              <input
+                type="number"
+                class="item"
+                name="pizza_qty"
+                value="0"
+                min="0"
+              />
             </div>
           </div>
 
@@ -192,10 +204,20 @@
             <p>Chicken Burger</p>
             <div class="price">₹150</div>
             <div class="qty-control">
-              <button class="qty-btn minus" type="button"><label class="btn-label">−</label></button>
+              <button class="qty-btn minus" type="button">
+                <label class="btn-label">−</label>
+              </button>
               <div class="qty-display" aria-live="polite">0</div>
-              <button class="qty-btn plus" type="button"><label class="btn-label">+</label></button>
-              <input type="number" class="item" name="burger_qty" value="0" min="0" />
+              <button class="qty-btn plus" type="button">
+                <label class="btn-label">+</label>
+              </button>
+              <input
+                type="number"
+                class="item"
+                name="burger_qty"
+                value="0"
+                min="0"
+              />
             </div>
           </div>
 
@@ -204,10 +226,20 @@
             <p>Italian Pasta</p>
             <div class="price">₹200</div>
             <div class="qty-control">
-              <button class="qty-btn minus" type="button"><label class="btn-label">−</label></button>
+              <button class="qty-btn minus" type="button">
+                <label class="btn-label">−</label>
+              </button>
               <div class="qty-display" aria-live="polite">0</div>
-              <button class="qty-btn plus" type="button"><label class="btn-label">+</label></button>
-              <input type="number" class="item" name="pasta_qty" value="0" min="0" />
+              <button class="qty-btn plus" type="button">
+                <label class="btn-label">+</label>
+              </button>
+              <input
+                type="number"
+                class="item"
+                name="pasta_qty"
+                value="0"
+                min="0"
+              />
             </div>
           </div>
 
@@ -216,10 +248,20 @@
             <p>Soft Drink</p>
             <div class="price">₹50</div>
             <div class="qty-control">
-              <button class="qty-btn minus" type="button"><label class="btn-label">−</label></button>
+              <button class="qty-btn minus" type="button">
+                <label class="btn-label">−</label>
+              </button>
               <div class="qty-display" aria-live="polite">0</div>
-              <button class="qty-btn plus" type="button"><label class="btn-label">+</label></button>
-              <input type="number" class="item" name="drink_qty" value="0" min="0" />
+              <button class="qty-btn plus" type="button">
+                <label class="btn-label">+</label>
+              </button>
+              <input
+                type="number"
+                class="item"
+                name="drink_qty"
+                value="0"
+                min="0"
+              />
             </div>
           </div>
         </div>
@@ -241,66 +283,67 @@
 
       <div id="message">🎉 Order placed successfully!</div>
     </div>
-            <script>
-              document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("orderForm");
-  const totalDisplay = document.getElementById("total");
-  const messageBox = document.getElementById("message");
-  const foodCards = document.querySelectorAll(".food-card");
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("orderForm");
+        const totalDisplay = document.getElementById("total");
+        const messageBox = document.getElementById("message");
+        const foodCards = document.querySelectorAll(".food-card");
 
-  // Function to calculate and update total price
-  function updateTotal() {
-    let total = 0;
-    foodCards.forEach((card) => {
-      const price = parseFloat(card.getAttribute("data-price"));
-      const qtyInput = card.querySelector("input.item");
-      const qty = parseInt(qtyInput.value) || 0;
-      total += price * qty;
-    });
-    totalDisplay.textContent = total;
-  }
+        // Function to calculate and update total price
+        function updateTotal() {
+          let total = 0;
+          foodCards.forEach((card) => {
+            const price = parseInt(card.getAttribute("data-price"));
+            const qtyInput = card.querySelector("input.item");
+            const qty = parseInt(qtyInput.value) || 0;
+            total += price * qty;
+          });
+          totalDisplay.textContent = total;
+        }
 
-  // Add event listeners to each food card's buttons
-  foodCards.forEach((card) => {
-    const plusBtn = card.querySelector(".plus");
-    const minusBtn = card.querySelector(".minus");
-    const qtyDisplay = card.querySelector(".qty-display");
-    const qtyInput = card.querySelector("input.item");
+        // Add event listeners to each food card's buttons
+        foodCards.forEach((card) => {
+          const plusBtn = card.querySelector(".plus");
+          const minusBtn = card.querySelector(".minus");
+          const qtyDisplay = card.querySelector(".qty-display");
+          const qtyInput = card.querySelector("input.item");
 
-    plusBtn.addEventListener("click", () => {
-      let currentQty = parseInt(qtyInput.value) || 0;
-      currentQty++;
-      qtyInput.value = currentQty;
-      qtyDisplay.textContent = currentQty;
-      updateTotal();
-    });
+          plusBtn.addEventListener("click", () => {
+            let currentQty = parseInt(qtyInput.value) || 0;
+            currentQty++;
+            qtyInput.value = currentQty;
+            qtyDisplay.textContent = currentQty;
+            updateTotal();
+          });
 
-    minusBtn.addEventListener("click", () => {
-      let currentQty = parseInt(qtyInput.value) || 0;
-      if (currentQty > 0) {
-        currentQty--;
-        qtyInput.value = currentQty;
-        qtyDisplay.textContent = currentQty;
-        updateTotal();
-      }
-    });
-  });
+          minusBtn.addEventListener("click", () => {
+            let currentQty = parseInt(qtyInput.value) || 0;
+            if (currentQty > 0) {
+              currentQty--;
+              qtyInput.value = currentQty;
+              qtyDisplay.textContent = currentQty;
+              updateTotal();
+            }
+          });
+        });
 
-  // Handle Form Submission
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Prevent page reload
+        // Handle Form Submission
+        form.addEventListener("submit", (e) => {
+          e.preventDefault(); // Prevent page reload
 
-    // Check if at least one item is selected
-    const currentTotal = parseFloat(totalDisplay.textContent);
-    if (currentTotal === 0) {
-      alert("Please select at least one item before placing your order.");
-      return;
-    }
+          // Check if at least one item is selected
+          const currentTotal = parseFloat(totalDisplay.textContent);
+          if (currentTotal === 0) {
+            alert("Please select at least one item before placing your order.");
+            return;
+          }
 
-    // Display success message and hide form
-    form.style.display = "none";
-    messageBox.style.display = "block";
-  });
-});
-            </script>
-  </body></html>
+          // Display success message and hide form
+          form.style.display = "none";
+          messageBox.style.display = "block";
+        });
+      });
+    </script>
+  </body>
+</html>
