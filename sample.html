@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is for the JavaScript Testing</h1>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <br />
+    <h1>JavaScript Operators</h1>
+    <p id="operatorArithmetic"></p>
+    <p id="operatorAssignment"></p>
+    <p id="operatorComparison"></p>
+    <p id="operatorLogical"></p>
+
+    <script>
+      //Assignment Operator and Addition operator
+      let x = 10;
+      let y = 20;
+      let z = x + y;
+      document.getElementById("demo").innerHTML =
+        "The Addition of " + x + " and " + y + " is " + z;
+
+      //Redeclare using let is not possible
+      let a = 20;
+      {
+        let a = 10;
+      }
+      document.getElementById("demo1").innerHTML = "The value of a is " + a;
+
+      //Redeclare using var is possible
+      var b = 20;
+      {
+        var b = 10;
+      }
+      document.getElementById("demo2").innerHTML = "The value of b is " + b;
+
+      //Const is unchangable
+      try {
+        const PI = 3.1433;
+        PI = 3.14;
+        document.getElementById("demo3").innerHTML = "The value of c is " + c;
+      } catch (err) {
+        document.getElementById("demo3").innerHTML = err;
+      }
+
+      // $ and _ considered as a vairable
+      var $$ = 34;
+      var _100 = 25;
+      document.getElementById("demo4").innerHTML =
+        "The Value is " + $$ + " and " + _100;
+
+      // JavaScript Hoisting
+      try {
+        carname = "BMW";
+        document.getElementById("demo5").innerHTML =
+          "The Car name is " + carname;
+        let carname;
+      } catch (err) {
+        document.getElementById("demo5").innerHTML = err;
+      }
+
+      // JavaScript operator examples
+      let firstNumber = 10;
+      let secondNumber = 3;
+
+      document.getElementById("operatorArithmetic").innerHTML =
+        "Arithmetic: 10 + 3 = " +
+        (firstNumber + secondNumber) +
+        ", 10 - 3 = " +
+        (firstNumber - secondNumber) +
+        ", 10 * 3 = " +
+        firstNumber * secondNumber +
+        ", 10 / 3 = " +
+        (firstNumber / secondNumber).toFixed(2) +
+        ", 10 % 3 = " +
+        (firstNumber % secondNumber) +
+        ", 10 ** 3 = " +
+        firstNumber ** secondNumber;
+
+      document.getElementById("operatorAssignment").innerHTML =
+        "Assignment: firstNumber = 10, firstNumber += secondNumber gives " +
+        (firstNumber += secondNumber) +
+        ", firstNumber -= secondNumber gives " +
+        (firstNumber -= secondNumber) +
+        ", firstNumber *= secondNumber gives " +
+        (firstNumber *= secondNumber) +
+        ", firstNumber /= secondNumber gives " +
+        (firstNumber /= secondNumber);
+
+      document.getElementById("operatorComparison").innerHTML =
+        "Comparison: 10 == '10' is " +
+        (firstNumber == "10") +
+        ", 10 === '10' is " +
+        (firstNumber === "10") +
+        ", 10 > 3 is " +
+        (firstNumber > secondNumber) +
+        ", 10 != 3 is " +
+        (firstNumber != secondNumber);
+
+      document.getElementById("operatorLogical").innerHTML =
+        "Logical: (10 > 3 && 3 > 0) is " +
+        (firstNumber > secondNumber && secondNumber > 0) +
+        ", (10 < 3 || 3 > 0) is " +
+        (firstNumber < secondNumber || secondNumber > 0) +
+        ", !(10 > 3) is " +
+        !(firstNumber > secondNumber);
+    </script>
+  </body>
+</html>
