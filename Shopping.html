@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowCart - Modern Shopping</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            color: white;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin-top: 6px;
+            font-size: 15px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #ffffff;
+            padding: 16px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #475569;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #7c3aed;
+        }
+
+        /* Hero Banner */
+        .banner {
+            background: linear-gradient(135deg, #ede9fe 0%, #fae8ff 100%);
+            margin: 40px auto 30px;
+            padding: 45px 25px;
+            max-width: 900px;
+            border-radius: 20px;
+            border: 1px solid #e9d5ff;
+        }
+
+        .banner h2 {
+            color: #6b21a8;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .banner p {
+            color: #64748b;
+            margin: 10px 0 20px;
+            font-size: 15px;
+        }
+
+        .banner button {
+            background: #7c3aed;
+            color: white;
+            padding: 12px 28px;
+            font-size: 15px;
+        }
+
+        .banner button:hover {
+            background: #6d28d9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+        }
+
+        /* Section Title */
+        .section-title {
+            color: #0f172a;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 35px 0 25px;
+        }
+
+        /* Product Grid */
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            max-width: 1050px;
+            margin: 0 auto 47px;
+            padding: 0 15px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            width: 220px;
+            padding: 16px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .pic {
+            font-size: 48px;
+            padding: 24px 0;
+            border-radius: 14px;
+            margin-bottom: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .pic {
+            transform: scale(1.05);
+        }
+
+        .pink       { background-color: #fce7f3; }
+        .yellow     { background-color: #fef3c7; }
+        .green      { background-color: #dcfce7; }
+        .lavender   { background-color: #f3e8ff; }
+        .orange     { background-color: #ffedd5; }
+        .lightblue  { background-color: #e0f2fe; }
+        .lightpink  { background-color: #ffe4e6; }
+        .lightyellow{ background-color: #fef9c3; }
+
+        .card h3 {
+            color: #1e293b;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .card b {
+            display: block;
+            color: #7c3aed;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        /* Buttons */
+        button {
+            background-color: #0f172a;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #7c3aed;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 30px 20px;
+        }
+
+        footer h3 {
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🛍️ GlowCart</h1>
+    <p>Shop Smart. Shop Happy.</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Fashion</a>
+    <a href="#">Electronics</a>
+    <a href="#">Offers</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="banner">
+    <h2>✨ Welcome to GlowCart ✨</h2>
+    <p>Discover amazing products at unbeatable prices today.</p>
+    <button style="width: auto;">Shop Now</button>
+</div>
+
+<h2 class="section-title">Featured Products</h2>
+
+<div class="products">
+
+    <div class="card">
+        <div class="pic pink">👟</div>
+        <h3>Sports Shoes</h3>
+        <p>Comfortable and stylish</p>
+        <b>₹1,499</b>
+        <button>Buy Now</button>
+    </div>
+
+    <div class="card">
+        <div class="pic yellow">🎧</div>
+        <h3>Headphones</h3>
+        <p>Clear sound & deep bass</p>
+        <b>₹999</b>
+        <button>Buy Now</button>
+    </div>
+
+    <div class="card">
+        <div class="pic green">⌚</div>
+        <h3>Smart Watch</h3>
+        <p>Smart, sleek & modern</p>
+        <b>₹1,999</b>
+        <button>Buy Now</button>
+    </div>
+
+    <div class="card">
+        <div class="pic lavender">🎒</div>
+        <h3>Backpack</h3>
+        <p>Stylish and durable</p>
+        <b>₹799</b>
+        <button>Buy Now</button>
+    </div>
+
+</div>
+
+<footer>
+    <h3>GlowCart</h3>
+    <p>© 2026 GlowCart. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
