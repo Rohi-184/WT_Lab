@@ -1,0 +1,15 @@
+<!ELEMENT students (student+)>
+
+<!ELEMENT student (name, age, course, grade)>
+
+<!ELEMENT name (#PCDATA)>
+
+<!ELEMENT age (#PCDATA)>
+
+<!ELEMENT course (#PCDATA)>
+
+<!ELEMENT grade (#PCDATA)>
+
+<!ATTLIST student
+    id ID #REQUIRED
+>

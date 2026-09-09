@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>College Admission Form</title>
+
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f5f5f5;
+        }
+
+
+        .form-box {
+
+            width: 450px;
+
+            margin: auto;
+
+            padding: 20px;
+
+            background-color: white;
+
+            border-radius: 10px;
+
+            box-shadow: 0 0 10px #aaa;
+        }
+
+
+        h2 {
+
+            text-align: center;
+
+            color: #333;
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-top: 10px;
+        }
+
+
+        input,
+        select {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 10px;
+
+            margin-top: 5px;
+        }
+
+
+        input[type="radio"] {
+
+            width: auto;
+        }
+
+
+        button {
+
+            width: 100%;
+
+            padding: 10px;
+
+            margin-top: 15px;
+
+            background-color: green;
+
+            color: white;
+
+            border: none;
+
+            cursor: pointer;
+        }
+
+
+        #status {
+
+            text-align: center;
+
+            font-weight: bold;
+
+            color: green;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 36px 16px;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            color: #28323c;
+            background: linear-gradient(135deg, #e8f4f8, #d9e4f5 52%, #f7e3d3);
+        }
+
+        .form-box {
+            width: min(100%, 520px);
+            padding: 28px 32px;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid #d6e1e8;
+            border-radius: 16px;
+            box-shadow: 0 18px 42px rgba(49, 78, 99, 0.18);
+        }
+
+        h2 {
+            margin: 0 0 22px;
+            color: #245b73;
+            font-size: 28px;
+        }
+
+        label {
+            margin-top: 14px;
+            color: #3d5662;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input:not([type="radio"]),
+        select {
+            border: 1px solid #cbd9e1;
+            border-radius: 6px;
+            background: #fbfdfe;
+            color: #28323c;
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:not([type="radio"]):focus,
+        select:focus {
+            outline: none;
+            border-color: #2589a8;
+            box-shadow: 0 0 0 3px rgba(37, 137, 168, 0.14);
+        }
+
+        input[type="radio"] {
+            accent-color: #2589a8;
+            margin: 12px 5px 2px 2px;
+        }
+
+        button {
+            margin-top: 22px;
+            border-radius: 6px;
+            background: #246b80;
+            font-size: 15px;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #174e60;
+            transform: translateY(-2px);
+        }
+
+        #status {
+            margin: 16px 0 0;
+            color: #16805c;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .form-box {
+                padding: 22px 18px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="form-box">
+
+        <h2>College Admission Form</h2>
+
+
+        <form id="admissionForm"
+              onsubmit="return validateForm()">
+
+
+            <label for="name">
+                Student Name:
+            </label>
+
+            <input type="text"
+                   id="name">
+
+
+            <label for="email">
+                Email:
+            </label>
+
+            <input type="email"
+                   id="email">
+
+
+            <label for="mobile">
+                Mobile Number:
+            </label>
+
+            <input type="tel"
+                   id="mobile">
+
+
+            <label for="dob">
+                Date of Birth:
+            </label>
+
+            <input type="date"
+                   id="dob">
+
+
+            <label>
+                Gender:
+            </label>
+
+            <input type="radio"
+                   name="gender"
+                   value="Male">
+
+            Male
+
+            <input type="radio"
+                   name="gender"
+                   value="Female">
+
+            Female
+
+
+            <label for="course">
+                Course:
+            </label>
+
+            <select id="course">
+
+                <option value="">
+                    Select Course
+                </option>
+
+                <option value="MCA">
+                    MCA
+                </option>
+
+                <option value="MSC">
+                    MSc
+                </option>
+
+                <option value="MBA">
+                    MBA
+                </option>
+
+            </select>
+
+
+            <label for="address">
+                Address:
+            </label>
+
+            <input type="text"
+                   id="address">
+
+
+            <label for="password">
+                Password:
+            </label>
+
+            <input type="password"
+                   id="password">
+
+
+            <label for="confirmPassword">
+                Confirm Password:
+            </label>
+
+            <input type="password"
+                   id="confirmPassword">
+
+
+            <button type="submit">
+                Submit
+            </button>
+
+
+            <p id="status"></p>
+
+        </form>
+
+    </div>
+
+
+    <script>
+
+        function validateForm() {
+
+            let name =
+                document.getElementById("name")
+                    .value.trim();
+
+
+            let email =
+                document.getElementById("email")
+                    .value.trim();
+
+
+            let mobile =
+                document.getElementById("mobile")
+                    .value.trim();
+
+
+            let dob =
+                document.getElementById("dob")
+                    .value;
+
+
+            let course =
+                document.getElementById("course")
+                    .value;
+
+
+            let address =
+                document.getElementById("address")
+                    .value.trim();
+
+
+            let password =
+                document.getElementById("password")
+                    .value;
+
+
+            let confirmPassword =
+                document.getElementById("confirmPassword")
+                    .value;
+
+
+            if (
+                name === "" ||
+                email === "" ||
+                mobile === "" ||
+                dob === "" ||
+                course === "" ||
+                address === "" ||
+                password === "" ||
+                confirmPassword === ""
+            ) {
+
+                alert("Please fill all required fields");
+
+                return false;
+            }
+
+
+            let gender =
+                document.querySelector(
+                    'input[name="gender"]:checked'
+                );
+
+
+            if (!gender) {
+
+                alert("Please select your gender");
+
+                return false;
+            }
+
+
+            let emailPattern =
+                /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+
+            if (!email.match(emailPattern)) {
+
+                alert(
+                    "Please enter a valid email address"
+                );
+
+                return false;
+            }
+
+
+            let mobilePattern =
+                /^[0-9]{10}$/;
+
+
+            if (!mobile.match(mobilePattern)) {
+
+                alert(
+                    "Mobile number must contain exactly 10 digits"
+                );
+
+                return false;
+            }
+
+
+            if (password.length < 6) {
+
+                alert(
+                    "Password must be at least 6 characters"
+                );
+
+                return false;
+            }
+
+
+            if (password !== confirmPassword) {
+
+                alert(
+                    "Password and confirm password do not match"
+                );
+
+                return false;
+            }
+
+
+            document.getElementById("status").innerHTML =
+                "Registration Successful";
+
+
+            return false;
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Information Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 32px 16px;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            color: #24313b;
+            background: linear-gradient(135deg, #e9f5f2, #c9dff2);
+        }
+
+        h1 {
+            margin: 0 auto 22px;
+            color: #164e63;
+            text-align: center;
+            font-size: clamp(26px, 5vw, 38px);
+        }
+
+        form {
+            width: min(100%, 620px);
+            margin: 0 auto;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #d3e2e8;
+            border-radius: 14px;
+            box-shadow: 0 16px 35px rgba(32, 66, 83, 0.16);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+
+        td {
+            padding: 10px 12px;
+            border: 0;
+            background: #f5fafb;
+        }
+
+        td:first-child {
+            width: 38%;
+            border-radius: 6px 0 0 6px;
+            color: #42616c;
+            font-weight: 600;
+        }
+
+        td:last-child {
+            border-radius: 0 6px 6px 0;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 9px 11px;
+            border: 1px solid #c7d8df;
+            border-radius: 5px;
+            background: white;
+            color: #24313b;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #168aad;
+            box-shadow: 0 0 0 3px rgba(22, 138, 173, 0.15);
+        }
+
+        input[type="radio"] {
+            accent-color: #168aad;
+            margin: 0 5px 0 4px;
+        }
+
+        input[readonly] {
+            background: #eaf4f5;
+            font-weight: 700;
+        }
+
+        #result,
+        #grade {
+            color: #147a58;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 11px 18px;
+            border: 0;
+            border-radius: 6px;
+            background: #146c80;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        input[type="button"]:hover {
+            background: #0d5262;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            form {
+                padding: 16px 12px;
+            }
+
+            td {
+                padding: 8px;
+            }
+
+            td:first-child {
+                width: 42%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Student Information Form</h1>
+
+    <form id="studentForm">
+
+        <table border="1">
+
+            <tr>
+                <td>Student Name</td>
+
+                <td>
+                    <input type="text" id="name">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Gender</td>
+
+                <td>
+
+                    <input type="radio"
+                           name="gender"
+                           value="Male">
+
+                    Male
+
+                    <input type="radio"
+                           name="gender"
+                           value="Female">
+
+                    Female
+
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Subject 1</td>
+
+                <td>
+                    <input type="text" id="sub1">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Subject 2</td>
+
+                <td>
+                    <input type="text" id="sub2">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Subject 3</td>
+
+                <td>
+                    <input type="text" id="sub3">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Subject 4</td>
+
+                <td>
+                    <input type="text" id="sub4">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Subject 5</td>
+
+                <td>
+                    <input type="text" id="sub5">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Total</td>
+
+                <td>
+                    <input type="text"
+                           id="total"
+                           readonly>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Average</td>
+
+                <td>
+                    <input type="text"
+                           id="average"
+                           readonly>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Result</td>
+
+                <td>
+                    <input type="text"
+                           id="result"
+                           readonly>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Grade</td>
+
+                <td>
+                    <input type="text"
+                           id="grade"
+                           readonly>
+                </td>
+            </tr>
+
+
+            <tr>
+
+                <td colspan="2">
+
+                    <input type="button"
+                           value="CALCULATE"
+                           onclick="calculateMarks()">
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </form>
+
+
+    <script>
+
+        function calculateMarks() {
+
+            let m1 =
+                parseInt(document.getElementById("sub1").value);
+
+            let m2 =
+                parseInt(document.getElementById("sub2").value);
+
+            let m3 =
+                parseInt(document.getElementById("sub3").value);
+
+            let m4 =
+                parseInt(document.getElementById("sub4").value);
+
+            let m5 =
+                parseInt(document.getElementById("sub5").value);
+
+
+            if (
+                isNaN(m1) ||
+                isNaN(m2) ||
+                isNaN(m3) ||
+                isNaN(m4) ||
+                isNaN(m5)
+            ) {
+
+                alert("Please enter marks for all subjects.");
+
+                return;
+            }
+
+
+            let total =
+                m1 + m2 + m3 + m4 + m5;
+
+
+            let average =
+                total / 5;
+
+
+            let result = "";
+            let grade = "";
+
+
+            if (
+                m1 < 35 ||
+                m2 < 35 ||
+                m3 < 35 ||
+                m4 < 35 ||
+                m5 < 35
+            ) {
+
+                result = "Fail";
+                grade = "F";
+
+            }
+
+            else if (average >= 75) {
+
+                result = "Pass";
+                grade = "A";
+
+            }
+
+            else if (average >= 60) {
+
+                result = "Pass";
+                grade = "B";
+
+            }
+
+            else if (average >= 50) {
+
+                result = "Pass";
+                grade = "C";
+
+            }
+
+            else {
+
+                result = "Fail";
+                grade = "F";
+            }
+
+
+            document.getElementById("total").value =
+                total;
+
+            document.getElementById("average").value =
+                average.toFixed(2);
+
+            document.getElementById("result").value =
+                result;
+
+            document.getElementById("grade").value =
+                grade;
+        }
+
+    </script>
+
+</body>
+
+</html>

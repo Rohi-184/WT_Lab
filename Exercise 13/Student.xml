@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE students SYSTEM "Students.dtd">
+
+<students>
+
+    <student id="s101">
+
+        <name>Vishnu</name>
+
+        <age>23</age>
+
+        <course>MCA</course>
+
+        <grade>A</grade>
+
+    </student>
+
+
+    <student id="s102">
+
+        <name>Rahul</name>
+
+        <age>21</age>
+
+        <course>MCA</course>
+
+        <grade>B</grade>
+
+    </student>
+
+
+    <student id="s103">
+
+        <name>Ravi</name>
+
+        <age>22</age>
+
+        <course>MCA</course>
+
+        <grade>C</grade>
+
+    </student>
+
+
+    <student id="s104">
+
+        <name>Vicky</name>
+
+        <age>23</age>
+
+        <course>MCA</course>
+
+        <grade>A</grade>
+
+    </student>
+
+</students>
