@@ -9,7 +9,3 @@
 <!ELEMENT course (#PCDATA)>
 
 <!ELEMENT grade (#PCDATA)>
-
-<!ATTLIST student
-    id ID #REQUIRED
->
