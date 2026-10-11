@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/xsl" href="bike.xsl"?>
+
+<bikes>
+
+    <bike>
+        <id>B101</id>
+        <name>TVS Raider</name>
+        <brand>TVS</brand>
+        <price>95000</price>
+        <color>Red</color>
+    </bike>
+
+    <bike>
+        <id>B102</id>
+        <name>Splendor Plus</name>
+        <brand>Hero</brand>
+        <price>78000</price>
+        <color>Black</color>
+    </bike>
+
+    <bike>
+        <id>B103</id>
+        <name>Pulsar 150</name>
+        <brand>Bajaj</brand>
+        <price>110000</price>
+        <color>Blue</color>
+    </bike>
+
+</bikes>

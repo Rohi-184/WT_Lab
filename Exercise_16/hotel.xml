@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="hotel.xsl"?>
+<hotelBooking>
+    <company>DreamStay Hotels</company>
+    <location>Paris, France</location>
+    <rooms>
+        <room>
+            <name>Deluxe Room</name>
+            <description>Spacious room with a king-size bed and city view.</description>
+            <image>deluxe.jpg</image>
+            <capacity>2</capacity>
+            <price>15000</price>
+        </room>
+        <room>
+            <name>Family Suite</name>
+            <description>Perfect for families, with a separate living area.</description>
+            <image>family.jpg</image>
+            <capacity>4</capacity>
+            <price>25000</price>
+        </room>
+    </rooms>
+</hotelBooking>
