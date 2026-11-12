@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Application Submitted Successfully!</h2>
+    <p>Entered Applicant Details</p>
+
+    <div class="details">
+        <p><b>Full Name:</b> <span id="name"></span></p>
+        <p><b>Email:</b> <span id="email"></span></p>
+        <p><b>Phone:</b> <span id="phone"></span></p>
+        <p><b>Date of Birth:</b> <span id="dob"></span></p>
+        <p><b>Gender:</b> <span id="gender"></span></p>
+        <p><b>Qualification:</b> <span id="qualification"></span></p>
+        <p><b>Position:</b> <span id="position"></span></p>
+        <p><b>Address:</b> <span id="address"></span></p>
+    </div>
+
+    <a href="index.html">
+        <button type="button">Back to Form</button>
+    </a>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById("name").textContent = params.get("name") || "";
+    document.getElementById("email").textContent = params.get("email") || "";
+    document.getElementById("phone").textContent = params.get("phone") || "";
+    document.getElementById("dob").textContent = params.get("dob") || "";
+    document.getElementById("gender").textContent = params.get("gender") || "";
+    document.getElementById("qualification").textContent = params.get("qualification") || "";
+    document.getElementById("position").textContent = params.get("position") || "";
+    document.getElementById("address").textContent = params.get("address") || "";
+</script>
+
+</body>
+</html>

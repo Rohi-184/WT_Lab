@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Billing System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        .container {
+            width: 500px;
+            max-width: 100%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: blue;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid gray;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .total {
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Billing System</h2>
+
+    <div class="no-print">
+
+        <label>Customer Name:</label>
+        <input type="text" id="customer" placeholder="Enter customer name">
+
+        <h3>Add Product</h3>
+
+        <input type="text" id="product" placeholder="Product Name">
+
+        <input type="number" id="price" placeholder="Price">
+
+        <input type="number" id="quantity" placeholder="Quantity">
+
+        <button onclick="addProduct()">Add Product</button>
+
+    </div>
+
+    <h3>Customer Bill</h3>
+
+    <p><b>Name:</b> <span id="billName"></span></p>
+
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+        </tr>
+
+        <tbody id="billItems"></tbody>
+    </table>
+
+    <p class="total">
+        Grand Total: ₹<span id="total">0</span>
+    </p>
+
+    <div class="no-print">
+        <button onclick="printBill()">Print Bill</button>
+        <button onclick="clearBill()">Clear</button>
+    </div>
+
+</div>
+
+<script>
+
+    let total = 0;
+
+    function addProduct() {
+
+        let name = document.getElementById("product").value;
+        let price = Number(document.getElementById("price").value);
+        let qty = Number(document.getElementById("quantity").value);
+
+        if (name === "" || price <= 0 || qty <= 0) {
+            alert("Enter valid product details");
+            return;
+        }
+
+        let amount = price * qty;
+
+        let table = document.getElementById("billItems");
+
+        let row = table.insertRow();
+
+        row.insertCell(0).innerHTML = name;
+        row.insertCell(1).innerHTML = price;
+        row.insertCell(2).innerHTML = qty;
+        row.insertCell(3).innerHTML = amount;
+
+        total = total + amount;
+
+        document.getElementById("total").innerHTML = total;
+
+        document.getElementById("billName").innerHTML =
+            document.getElementById("customer").value;
+
+        document.getElementById("product").value = "";
+        document.getElementById("price").value = "";
+        document.getElementById("quantity").value = "";
+
+    }
+
+    function printBill() {
+
+        document.getElementById("billName").innerHTML =
+            document.getElementById("customer").value;
+
+        if (total === 0) {
+            alert("Please add products first!");
+            return;
+        }
+
+        window.print();
+
+    }
+
+    function clearBill() {
+
+        total = 0;
+
+        document.getElementById("billItems").innerHTML = "";
+        document.getElementById("total").innerHTML = "0";
+        document.getElementById("customer").value = "";
+        document.getElementById("billName").innerHTML = "";
+
+    }
+
+</script>
+
+</body>
+</html>
